@@ -1,30 +1,57 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <div class="container-fluid d-flex">
+
+    <div class="menu-sx p-3">
+      menu sx
+    </div>
+
+    <div class="menu-dx">
+      <div class="menu-dx-top p-3 d-flex justify-content-between align-items-center">
+        top
+      </div>
+
+      <div class="menu-dx-bot p-3 justify-content-center">
+        <RouterView></RouterView>
+      </div>
+    </div>
+
+  </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+<script>
+export default {
+  name: 'App',
+}
+</script>
+
+<style lang="scss" scoped>
+@use './assets/partials/variables' as *;
+
+.b {
+  border: 1px solid black;
 }
 
-nav {
-  padding: 30px;
+.menu-sx {
+  width: 200px;
+  height: 100vh;
+  background-color: $color-blue;
+  color: white;
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+}
 
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+.menu-dx {
+  width: calc(100% - 200px);
+  height: 100vh;
+
+  .menu-dx-top {
+    height: 50px;
+    background-color: $color-grey;
+  }
+
+  .menu-dx-bot {
+    height: calc(100% - 50px);
+    background-color: $color-light-grey;
+    overflow-y: auto;
   }
 }
 </style>
